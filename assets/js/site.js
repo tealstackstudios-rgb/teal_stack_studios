@@ -108,7 +108,9 @@ if (footer) {
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 
 const inquiryForm = document.querySelector('#inquiry');
-if (inquiryForm && (location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname))) {
+if (inquiryForm) {
+  const isLocalPreview = location.protocol === 'file:' || ['localhost', '127.0.0.1'].includes(location.hostname);
+  if (isLocalPreview) {
   inquiryForm.addEventListener('submit', event => {
     event.preventDefault();
     const fields = new FormData(inquiryForm);
@@ -126,6 +128,40 @@ if (inquiryForm && (location.protocol === 'file:' || ['localhost', '127.0.0.1'].
     if (status) status.textContent = 'Your email app should open with this inquiry ready. Send the email to complete your request.';
     window.location.href = `mailto:tealstackstudios@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
+  } else {
+    inquiryForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!inquiryForm.reportValidity()) return;
+
+      const submitButton = inquiryForm.querySelector('[type="submit"]');
+      const status = inquiryForm.querySelector('.form-status');
+      if (submitButton) submitButton.disabled = true;
+      if (status) status.textContent = 'Sending your inquiry…';
+
+      try {
+        const response = await fetch(inquiryForm.action, {
+          method: 'POST',
+          body: new FormData(inquiryForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok && response.redirected) {
+          window.location.assign(response.url);
+          return;
+        }
+
+        let result = {};
+        try { result = await response.json(); } catch { /* Use the fallback message below. */ }
+        if (!response.ok) throw new Error(result.error || 'We could not send your inquiry. Please try again.');
+        window.location.assign('/thank-you.html');
+      } catch (error) {
+        if (status) status.textContent = error instanceof Error
+          ? error.message
+          : 'We could not send your inquiry. Please email tealstackstudios@gmail.com directly.';
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
 }
 
 const toggle = document.querySelector('.menu-toggle');

@@ -14,8 +14,7 @@
         <div class="contact-channel"><span>Email</span><a href="mailto:tealstackstudios@gmail.com">tealstackstudios@gmail.com</a></div>
         <div class="contact-channel"><span>Instagram</span><a href="https://www.instagram.com/teal_stack_studios/" target="_blank" rel="noopener noreferrer">@teal_stack_studios ↗</a></div>
       </section>
-      <form class="contact-form" id="inquiry" name="appointment-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="appointment-request">
+      <form class="contact-form" id="inquiry" name="appointment-request" method="POST" action="/api/appointment">
         <p hidden><label>Leave this field empty <input name="bot-field"></label></p>
         <div class="form-grid">
           <div class="field"><label for="full-name">Your name</label><input id="full-name" name="name" type="text" autocomplete="name" required></div>
