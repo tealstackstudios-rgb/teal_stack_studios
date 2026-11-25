@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-type="service" data-site-kind="other" data-radius="soft" data-buttons="solid" data-motion>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Book an appointment | Teal Stack Studios</title><meta name="description" content="Tell Teal Stack Studios what you want to build. Send an appointment inquiry for web, software, marketing, design or video work.">
+  <meta name="theme-color" content="#f5f6f2"><meta property="og:type" content="website"><meta property="og:title" content="Book an appointment | Teal Stack Studios"><meta property="og:description" content="Share your project details and request an appointment."><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/images/brand-mark.png" type="image/png"><link rel="stylesheet" href="/assets/css/site.css?v=20261125-99"><script type="module" src="/assets/js/site.js?v=20261125-22"></script>
+</head>
+<body data-page="contact">
+  <div data-site-header></div>
+  <main id="main-content" class="section">
+    <div class="container contact-grid">
+      <section class="contact-info"><p class="eyebrow">Start a project</p><h1>Tell us what you want to <span class="accent">build</span></h1><p>Share a little about your business and what you need. We’ll use your details to follow up about an appointment.</p>
+        <div class="contact-channel"><span>Email</span><a href="mailto:tealstackstudios@gmail.com">tealstackstudios@gmail.com</a></div>
+        <div class="contact-channel"><span>Instagram</span><a href="https://www.instagram.com/teal_stack_studios/" target="_blank" rel="noopener noreferrer">@teal_stack_studios ↗</a></div>
+      </section>
+      <form class="contact-form" id="inquiry" name="appointment-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="appointment-request">
+        <p hidden><label>Leave this field empty <input name="bot-field"></label></p>
+        <div class="form-grid">
+          <div class="field"><label for="full-name">Your name</label><input id="full-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field field--full"><label for="service">What do you need help with?</label><select id="service" name="service" required><option value="" selected disabled>Choose a service</option><option>Website development</option><option>Software development</option><option>Digital marketing</option><option>Graphic design or branding</option><option>Video editing</option><option>More than one service</option><option>Something else</option></select></div>
+          <div class="field field--full"><label for="availability">Preferred appointment time <span class="small-note">(optional)</span></label><input id="availability" name="preferred-appointment" type="text" placeholder="For example, weekday afternoons"></div>
+          <div class="field field--full"><label for="project-details">Tell us about the project</label><textarea id="project-details" name="project-details" required></textarea></div>
+        </div>
+        <p class="form-consent">By sending this inquiry, you agree that Teal Stack Studios may use these details to respond. Read the <a href="/privacy.html">Privacy Policy</a>.</p>
+        <button class="button" type="submit">Book an appointment <span aria-hidden="true">↗</span></button>
+        <p class="form-status" role="status">We’ll follow up using the email address you provide.</p>
+      </form>
+    </div>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Local Codex and editor data
+.agents/
+.codex/
+.codex-attachments/
+.aws/
+.netlify/
+skills-lock.json
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
