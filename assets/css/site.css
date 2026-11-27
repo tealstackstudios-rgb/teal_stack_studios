@@ -263,8 +263,10 @@ body[data-page="pricing"] .section--short { padding-top: 0; }
 .website-tiers { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border: 1px solid var(--line); background: #fff; }
 .website-tier { min-width: 0; padding: 20px; }
 .website-tier + .website-tier { border-left: 1px solid var(--line); }
-.website-tier h4 { margin: 0 0 9px; font-size: 16px; font-weight: 600; letter-spacing: -.025em; }
+.website-tier h3, .website-tier h4 { margin: 0 0 9px; font-size: 16px; font-weight: 600; letter-spacing: -.025em; }
 .website-tier > p:not(.website-tier__price) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+.website-tier__features { margin: 18px 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.5; list-style: none; }
+.website-tier__features li + li { margin-top: 7px; }
 .website-tier__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px; margin: 20px 0 0; color: var(--muted); font-size: 12px; }
 .website-tier__price strong { color: var(--blue-deep); font-size: 21px; font-weight: 650; letter-spacing: -.04em; }
 .price-detail__notice { margin-top: 14px !important; }
